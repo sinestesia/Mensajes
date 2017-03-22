@@ -3,6 +3,7 @@ package es.pamp.mensaje;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.IntDef;
 import android.support.v7.app.AlertDialog;
@@ -98,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
     };
     private void mostrarSalir(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setTitle("Salir");
+        alertDialogBuilder.setMessage("¿Desea cerrar la aplicación?");
+        alertDialogBuilder.setPositiveButton("Salir", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                MainActivity.this.finish();
+            }
+        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     };
 }
 
